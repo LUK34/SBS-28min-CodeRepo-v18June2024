@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://kng.kw/courses"
+xmlns:tns="http://kng.kw/courses" elementFormDefault="qualified">
+		
+		
+<!--  ################### Get SPECIFIC Course = REQUEST and RESPONSE  => START  ###################   -->	
+	<xs:element name="GetCourseDetailsRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:int" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="GetCourseDetailsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CourseDetails" type="tns:CourseDetails" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+<!--  ################### Get SPECIFIC Courses = REQUEST and RESPONSE  => END  ###################   -->
+
+<!--  ################### Get ALL Courses = REQUEST and RESPONSE  => START  ###################   -->	
+	<xs:element name="GetAllCourseDetailsRequest">
+		<xs:complexType>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="GetAllCourseDetailsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CourseDetails" type="tns:CourseDetails"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+<!--  ################### Get ALL Courses = REQUEST and RESPONSE  => END  ###################   -->	
+
+<!--  ################### DELETE SPEICIFC Courses = REQUEST and RESPONSE  => START  ###################   -->		
+	<xs:element name="DeleteCourseDetailsRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:int" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="DeleteCourseDetailsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="tns:Status" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+<!--  ################### DELETE SPEICIFC Courses = REQUEST and RESPONSE  => END  ###################   -->	
+	
+		<xs:simpleType name="Status">
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="SUCCESS" />
+				<xs:enumeration value="FAILURE" />
+			</xs:restriction>
+	</xs:simpleType>
+	
+	
+	
+	<xs:complexType name="CourseDetails">
+		<xs:sequence>
+			<xs:element name="id" type="xs:int" />
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="description" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+		
+</xs:schema>
+
+<!-- 
+
+<GetCourseDetailsRequest xmlns="http://kw.kng/courses">
+	<CourseDetails>
+		<id>123</id>
+		<name>Spring in28minutes</name>
+		<description>You are currently learning the basics of Spring Framework</description>
+	</CourseDetails>
+</GetCourseDetailsRequest>
+
+
+Description:
+1. Basic idea is we have to define and update the set of conventions and rules that are applied 
+when defining and interpreting the structure of XML documents.
+
+2. `xs` Namespace Prefix
+	2.1 `xs` stands for XML Schema.
+	2.2 It is a prefix that binds to the namespace http://www.w3.org/2001/XMLSchema, which is the standard namespace for XML Schema definitions.
+	2.3 The `xs` prefix is used to define schema elements and types, such as <xs:schema>, <xs:element>, <xs:complexType>, etc.
+	2.4 This namespace is standardized and is used universally to refer to the elements defined by the XML Schema specification.
+
+3.`tns` Namespace Prefix
+	3.1 `tns` stands for "this namespace."
+	3.2 It is a prefix that binds to the target namespace of the schema, which in this case is http://kng.kw/courses.
+	3.3 The `tns`  prefix is used to refer to elements and types that are defined within the schema itself. It helps avoid naming conflicts and makes it clear when referring to types within the same schema.
+
+
+-->
+
+

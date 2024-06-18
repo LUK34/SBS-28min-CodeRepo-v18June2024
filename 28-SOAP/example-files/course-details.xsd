@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://kng.kw/courses"
+xmlns:tns="http://kng.kw/courses" elementFormDefault="qualified">
+		
+		<xs:element name="GetCourseDetailsRequest">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="id" type="xs:integer" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		
+		<xs:element name="GetCourseDetailsResponse">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="CourseDetails" type="tns:CourseDetails" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		
+		<xs:complexType name="CourseDetails">
+				<xs:sequence>
+						<xs:element name="id" type="xs:integer" />
+						<xs:element name="name" type="xs:string" />
+						<xs:element  name="id" type="xs:integer"  />
+				</xs:sequence>	
+		</xs:complexType>
+		
+</xs:schema>
+
+<!-- 
+
+<GetCourseDetailsRequest xmlns="http://kw.kng/courses">
+	<CourseDetails>
+		<id>123</id>
+		<name>Spring in28minutes</name>
+		<description>You are currently learning the basics of Spring Framework</description>
+	</CourseDetails>
+</GetCourseDetailsRequest>
+
+
+Description:
+1. Basic idea is we have to define and update the set of conventions and rules that are applied 
+when defining and interpreting the structure of XML documents.
+
+
+-->
+
+
